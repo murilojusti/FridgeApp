@@ -1,9 +1,21 @@
+from openai import OpenAI
 from dotenv import load_dotenv
 import os
-import openai
-
-# Carregar variáveis do arquivo .env
 load_dotenv()
 
-# Pegar a API Key
-openai.api_key = os.getenv("sk")
+client = OpenAI(
+    api_key = os.getenv("OPENAI_API_KEY")
+)
+
+completion = client.chat.completions.create(
+    model="gpt-4o-mini",
+    messages=[
+        {"role":"system", "content":""},
+        {
+            "role": "user",
+            "content": ""
+        }
+    ]
+)
+
+print(completion.choices[0].message.content)
