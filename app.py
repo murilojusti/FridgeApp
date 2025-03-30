@@ -15,6 +15,7 @@ def menu():
         print("1. Add Ingredients")
         print("2. Generate Recipe")
         print("3. Remove Ingredient")
+        print("4. View Ingredients")
         print("X. End Application")
         print("=========================")
         op_menu = int(input("Insert an option: "))
@@ -26,6 +27,8 @@ def menu():
                 generate_recipe(ingredients)
             case 3:
                 remove_ingredient(ingredients)
+            case 4:
+                view_ingredients(ingredients)
             case X:
                 break
 
@@ -45,6 +48,10 @@ def remove_ingredient(ingredients):
     else:
         ingredients.remove(ingredient)
         print("Ingredient removed!")
+
+def view_ingredients(ingredients):
+    for i in ingredients:
+        print(f"- {i}")
 
 def generate_recipe(ingredients):
     completion = client.chat.completions.create(
