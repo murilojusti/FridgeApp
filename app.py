@@ -13,10 +13,10 @@ def menu():
     while True:
         print("========== MENU ==========")
         print("1. Add Ingredients")
-        print("2. Generate Recipe")
-        print("3. Remove Ingredient")
-        print("4. View Ingredients")
-        print("X. End Application")
+        print("2. Remove Ingredient")
+        print("3. View Ingredients")
+        print("4. Generate Recipe")
+        print("5. End Application")
         print("=========================")
         op_menu = int(input("Insert an option: "))
 
@@ -24,17 +24,17 @@ def menu():
             case 1:
                 ingredients = add_ingredient()
             case 2:
-                generate_recipe(ingredients)
-            case 3:
                 remove_ingredient(ingredients)
-            case 4:
+            case 3:
                 view_ingredients(ingredients)
-            case X:
+            case 4:
+                generate_recipe(ingredients)
+            case 5:
                 break
 
 
 def add_ingredient():
-    ingredients = []
+    ingredients = []    
     print("Type '.' to stop adding ingredients")
     while "." not in ingredients:
         ingredients.append(input("Insert an ingredient: "))
@@ -81,3 +81,6 @@ def generate_recipe(ingredients):
     print(answer)
 
 menu()
+
+# Arrumar adicionar ingredientes (nao apagar)
+# Opção de gerar uma nova receita com os ingredientes
