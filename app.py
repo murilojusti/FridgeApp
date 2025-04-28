@@ -8,6 +8,7 @@ client = OpenAI(
     api_key = os.getenv("OPENAI_API_KEY")
 )
 
+ingredients = [] 
 
 def menu():
     while True:
@@ -33,12 +34,11 @@ def menu():
                 break
 
 
-def add_ingredient():
-    ingredients = []    
-    print("Type '.' to stop adding ingredients")
-    while "." not in ingredients:
+def add_ingredient():  
+    print("Insert blank to stop adding")
+    while "" not in ingredients:
         ingredients.append(input("Insert an ingredient: "))
-    ingredients.remove(".")
+    ingredients.remove("")
     return ingredients
 
 def remove_ingredient(ingredients):
@@ -81,6 +81,3 @@ def generate_recipe(ingredients):
     print(answer)
 
 menu()
-
-# Arrumar adicionar ingredientes (nao apagar)
-# Opção de gerar uma nova receita com os ingredientes
