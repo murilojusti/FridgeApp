@@ -33,11 +33,22 @@ def menu():
             case 5:
                 break
 
+def sanitize_input(ingredient_input):
+    ingredient_input = ingredient_input.lower().strip()
+    with open("FOOD.txt", "r", encoding="utf-8") as ingredients_list:
+        for ingredient in ingredients_list:
+            if ingredient_input == ingredient.strip():
+                return True
+        return 
 
 def add_ingredient():  
-    print("Insert blank to stop adding")
+    print("Press Enter to stop adding")
     while "" not in ingredients:
-        ingredients.append(input("Insert an ingredient: "))
+        ingredient_input = input("Insert an ingredient: ")
+        if sanitize_input(ingredient_input) == True:
+            ingredients.append(ingredient_input)
+        else:
+            print("Not an ingredient")
     ingredients.remove("")
     return ingredients
 
